@@ -1,5 +1,5 @@
 {
-  "name": "bnb",
+  "name": "nextbnb",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,12 +8,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "12.0.7",
+    "next": "12.0.4",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "eslint": "8.4.1",
-    "eslint-config-next": "12.0.7"
+    "eslint": "7.32.0",
+    "eslint-config-next": "12.0.4"
   }
 }
