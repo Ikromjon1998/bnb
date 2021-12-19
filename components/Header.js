@@ -1,30 +1,30 @@
 import Link from "next/link"
 
-export default function Header() {
-    return (
-        <div className="nav-contianer">
-            <Link href="/">
-                <a>
-                    <img src="/img/logo3.png" width="4%" height="4%" alt="" />
-                </a>
+export default function Header(props) {
+  return (
+    <div className="nav-container">
+      <Link href="/">
+        <a>
+          <img src="/img/logo.png" alt="" />
+        </a>
+      </Link>
+
+      <nav>
+        <ul>
+          <li>
+            <Link href="/register">
+              <a>Sign up</a>
             </Link>
+          </li>
+          <li>
+            <Link href="/login">
+              <a>Log in</a>
+            </Link>
+          </li>
+        </ul>
+      </nav>
 
-            <nav>
-                <ul>
-                    <li>
-                        <Link href="/register">
-                            <a>Sign up</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/login">
-                            <a>Log in</a>
-                        </Link>
-                    </li>
-                </ul>
-            </nav>
-
-            <style jsx>{`
+      <style jsx>{`
         ul {
           margin: 0;
           padding: 0;
@@ -59,6 +59,6 @@ export default function Header() {
           float: right;
         }
       `}</style>
-        </div>
-    )
+    </div>
+  )
 }
