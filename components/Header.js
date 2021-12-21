@@ -24,7 +24,7 @@ export default function Header(props) {
         </ul>
       </nav>
 
-      <style jsx>{`
+      <style jsx="true">{`
         ul {
           margin: 0;
           padding: 0;

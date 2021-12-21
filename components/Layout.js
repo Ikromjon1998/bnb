@@ -5,8 +5,9 @@ export default function Layout(props) {
     <div>
       <Header />
       <main>{props.content}</main>
-      <style jsx>{`
+      <style jsx="true">{`
         main {
+
           position: relative;
           max-width: 56em;
           background-color: white;

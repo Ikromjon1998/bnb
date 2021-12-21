@@ -12,7 +12,7 @@ const content = (
       })}
     </div>
 
-    <style jsx>{`
+    <style jsx="true">{`
       .houses {
         display: grid;
         grid-template-columns: 49% 49%;
