@@ -21,7 +21,7 @@ const today = new Date()
 const tomorrow = new Date(today)
 tomorrow.setDate(tomorrow.getDate() + 1)
 
-const numberOfNightsCustomerBooked = (startDate, endDate) => {
+const numberOfNightsBetweenDates = (startDate, endDate) => {
   const start = new Date(startDate) //clone
   const end = new Date(endDate) //clone
   let dayCount = 0
@@ -58,7 +58,7 @@ export default function DateRangePicker({ datesChanged }) {
           onDayChange={day => {
             setStartDate(day)
             const newEndDate = new Date(day)
-            if (numberOfNightsCustomerBooked(day, endDate) < 1) {
+            if (numberOfNightsBetweenDates(day, endDate) < 1) {
               newEndDate.setDate(newEndDate.getDate() + 1)
               setEndDate(newEndDate)
             }
@@ -90,7 +90,7 @@ export default function DateRangePicker({ datesChanged }) {
           }}
         />
       </div>
-      <style jsx="true">
+      <style jsx>
         {`
           .date-range-picker-container div {
             display: grid;

@@ -1,10 +1,13 @@
-import { useState } from "react"
-import Head from "next/head"
-import houses from "../../houses.js"
-import Layout from "../../components/Layout"
-import DateRangePicker from "../../components/DateRangePicker"
+import { useState } from 'react'
+import Head from 'next/head'
 
-const numberOfNightsCustomerBooked = (startDate, endDate) => {
+import { useStoreActions } from 'easy-peasy'
+
+import houses from '../../houses.js'
+import Layout from '../../components/Layout'
+import DateRangePicker from '../../components/DateRangePicker'
+
+const calcNumberOfNightsBetweenDates = (startDate, endDate) => {
   const start = new Date(startDate) //clone
   const end = new Date(endDate) //clone
   let dayCount = 0
@@ -18,8 +21,13 @@ const numberOfNightsCustomerBooked = (startDate, endDate) => {
 }
 
 export default function House(props) {
-  const [dateChosen, setDateChosen] = useState(false);
-  const [numberOfNightsBetweenDates, setNumberOfNightsBetweenDates] = useState(0);
+  const [dateChosen, setDateChosen] = useState(false)
+  const [numberOfNightsBetweenDates, setNumberOfNightsBetweenDates] =
+    useState(0)
+
+  const setShowLoginModal = useStoreActions(
+    actions => actions.modals.setShowLoginModal
+  )
 
   return (
     <Layout
@@ -40,25 +48,32 @@ export default function House(props) {
             <DateRangePicker
               datesChanged={(startDate, endDate) => {
                 setNumberOfNightsBetweenDates(
-                  numberOfNightsCustomerBooked(startDate, endDate)
+                  calcNumberOfNightsBetweenDates(startDate, endDate)
                 )
                 setDateChosen(true)
               }}
             />
-            {dateChosen && (<div>
+            {dateChosen && (
+              <div>
                 <h2>Price per night</h2>
                 <p>${props.house.price}</p>
                 <h2>Total price for booking</h2>
                 <p>
                   ${(numberOfNightsBetweenDates * props.house.price).toFixed(2)}
                 </p>
-                <button className='reserve'>Reserve</button>
-            </div>)}
-              
+                <button
+                  className='reserve'
+                  onClick={() => {
+                    setShowLoginModal()
+                  }}
+                >
+                  Reserve
+                </button>
+              </div>
+            )}
           </aside>
 
-          <style jsx='true'>{`
-
+          <style jsx>{`
             .container {
               display: grid;
               grid-template-columns: 60% 40%;
