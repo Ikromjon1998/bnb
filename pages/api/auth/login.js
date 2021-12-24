@@ -1,4 +1,4 @@
-import { User, sequelize } from '../../../model.js'
+import { User, sequelize, House } from '../../../model.js'
 import Cookies from 'cookies'
 
 const randomString = length => {
@@ -10,11 +10,14 @@ const randomString = length => {
   return result
 }
 
+
 export default async (req, res) => {
   if (req.method !== 'POST') {
     res.status(405).end() //Method Not Allowed
     return
   }
+
+  House.sync()
 
   const { email, password } = req.body
 

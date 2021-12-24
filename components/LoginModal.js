@@ -50,7 +50,7 @@ export default function LoginModal(props) {
         </form>
       </div>
       <p>
-        Don't have an account yet?
+        Do not have an account yet?
         <a href='javascript:;' onClick={() => props.showSignup()}>
           Sign up
         </a>
