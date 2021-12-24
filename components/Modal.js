@@ -4,7 +4,7 @@ export default function Modal(props) {
       <div className='modal-background' onClick={() => props.close()}></div>
 
       <div className='modal'>{props.children}</div>
-      <style jsx global>{`
+      <style jsx="true" global>{`
         .modal-background {
           position: fixed;
           top: 0;

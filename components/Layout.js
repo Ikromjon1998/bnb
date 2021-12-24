@@ -45,7 +45,7 @@ export default function Layout(props) {
         </Modal>
       )}
 
-      <style jsx>{`
+      <style jsx="true">{`
         main {
           position: relative;
           max-width: 56em;

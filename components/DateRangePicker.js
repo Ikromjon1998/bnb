@@ -90,7 +90,7 @@ export default function DateRangePicker({ datesChanged }) {
           }}
         />
       </div>
-      <style jsx>
+      <style jsx="true">
         {`
           .date-range-picker-container div {
             display: grid;
@@ -102,7 +102,7 @@ export default function DateRangePicker({ datesChanged }) {
           }
         `}
       </style>
-      <style jsx global>
+      <style jsx="true" global>
         {`
           .DayPickerInput input {
             width: 120px;
